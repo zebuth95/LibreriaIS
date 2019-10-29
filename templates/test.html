@@ -1,0 +1,34 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% comment %}
+{% for libro in libros %}
+<h3>{{ libro.titulo }}</h3>
+{% endfor %}
+{% endcomment %}
+
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}! {{ user.documento }} {{ user.email }} {{ user.direccion }} {{ user.telefono }}
+  {% for prestamo in prestamos %}
+    {% if prestamo.user.documento == user.documento %}  
+      {{ prestamo.libro.titulo }}
+      {{ prestamo.fecha_prestamo }}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a> |
+  <a href="{% url 'signup' %}">signup</a>
+{% endif %}
+{% endblock %}
+
+{% comment %}
+  {% for prestamo in prestamos %}
+    {{prestamo.user.documento}}
+  {% endfor %}
+{% endcomment %}
