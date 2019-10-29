@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
 
 from .forms import CustomUserCreationForm
-from .models import prestamo, CustomUser, libro, portada
+from .models import prestamo, CustomUser, libro, portada, autor
 
 from .filters import filtrolibros
 
@@ -26,8 +26,9 @@ def home (request):
 
 def detalleslug(request, slug):
     libros = libro.objects.get(slug=slug)
-    template_name = 'home.html'
-    context = {"libros": libros}
+    autors = autor.objects.all()
+    template_name = 'libro.html'
+    context = {"libros": libros, "autors": autors}
     return render(request, template_name, context)
 
 def busqueda (request):
