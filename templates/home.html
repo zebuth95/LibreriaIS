@@ -1,15 +1,35 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
+{% block carrusel %}
+{% include "carrusel.html" %}
+{% include "conte.html" %}
+{% endblock carrusel %}
+
+
 {% block content %}
+
+
 {% if user.is_authenticated %}
-  Hi {{ user.username }}! {{ user.documento }} {{ user.email }} {{ prestamo.fecha_prestamo }}
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  Hi {{ user.username }}! {{ user.documento }} {{ user.email }} {{ user.direccion }} {{ user.telefono }}
+  {% for prestamo in prestamos %}
+    {% if prestamo.user.documento == user.documento %}  
+      {{ prestamo.libro.titulo }}
+      {{ prestamo.fecha_prestamo }}
+    {% endif %}
+  {% endfor %}
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a> |
   <a href="{% url 'signup' %}">signup</a>
 {% endif %}
 {% endblock %}
+
+{% comment %}
+  {% for prestamo in prestamos %}
+    {{prestamo.user.documento}}
+  {% endfor %}
+{% endcomment %}

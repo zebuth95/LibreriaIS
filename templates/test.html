@@ -4,12 +4,12 @@
 
 {% block title %}Home{% endblock %}
 
+{% block carrusel %}
+{% include "carrusel.html" %}
+{% include "conte.html" %}
+{% endblock carrusel %}
+
 {% block content %}
-{% comment %}
-{% for libro in libros %}
-<h3>{{ libro.titulo }}</h3>
-{% endfor %}
-{% endcomment %}
 
 
 {% if user.is_authenticated %}
