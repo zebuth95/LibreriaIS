@@ -39,7 +39,7 @@ def busqueda (request):
 
 class Detallesbusqueda(ListView):
     model = libro
-    template_name = 'busqueda.html'
+    template_name = 'busqueda.html' 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

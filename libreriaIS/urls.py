@@ -24,16 +24,15 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 
-from core.views import busqueda, home, Detallesbusqueda, detalleslug
+from core.views import home, Detallesbusqueda, detalleslug,SignUpView, detalleslug
 
 urlpatterns = [
-    path('/algo', TemplateView.as_view(template_name='home.html'), name='home'),
     path('', home, name='home'),
-    path('busqueda/', Detallesbusqueda.as_view()),
     path('libro/<slug:slug>/', detalleslug, name='libro'),
+    path('busqueda/', Detallesbusqueda.as_view(), name='busqueda'),
+    path('signup/', SignUpView.as_view(), name='signup'),
     path('admin/', admin.site.urls),
-    path('core/', include('core.urls')),
-    path('core/', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

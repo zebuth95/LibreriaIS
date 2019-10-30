@@ -1,13 +1,35 @@
 <!-- templates/signup.html -->
 {% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Registro{% endblock %}
+
+{% block carrusel %}
+{% include "carrusel.html" %}
+{% endblock carrusel %}
 
 {% block content %}
-<h2>Sign up</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign up</button>
-</form>
-{% endblock %}
+<!--Main layout-->
+<!--Main layout-->
+<main class="mt-5 pt-4">
+        <div class="container dark-grey-text mt-5 mb-4">
+          <section class="text-center">
+          <h2>Registrar</h2>
+          <!--Grid row-->
+          <div class="row wow fadeIn">
+            
+              <form method="post" >
+                  {% csrf_token %}
+                  <table>
+                    <tr>
+                      <td>{{ form.as_table }}</td>
+                    </tr>
+                  </table>
+                  <button type="submit" class="btn btn-primary">Registrar</button>
+              </form>
+
+          </div>
+          <!--Grid row-->
+        </section>
+      </main>
+      <!--Main layout-->
+{% endblock  %}

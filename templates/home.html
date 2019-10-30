@@ -1,6 +1,5 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}Home{% endblock %}
 
@@ -21,9 +20,10 @@
       {{ prestamo.fecha_prestamo }}
     {% endif %}
   {% endfor %}
+  <a href="{% url 'logout' %}">logout</a> 
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
+  <a href="{% url 'login' %}">login</a> 
   <a href="{% url 'signup' %}">signup</a>
 {% endif %}
 {% endblock %}
