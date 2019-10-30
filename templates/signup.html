@@ -3,33 +3,102 @@
 
 {% block title %}Registro{% endblock %}
 
-{% block carrusel %}
-{% include "carrusel.html" %}
-{% endblock carrusel %}
 
 {% block content %}
-<!--Main layout-->
-<!--Main layout-->
-<main class="mt-5 pt-4">
-        <div class="container dark-grey-text mt-5 mb-4">
-          <section class="text-center">
-          <h2>Registrar</h2>
-          <!--Grid row-->
-          <div class="row wow fadeIn">
-            
-              <form method="post" >
-                  {% csrf_token %}
-                  <table>
-                    <tr>
-                      <td>{{ form.as_table }}</td>
-                    </tr>
-                  </table>
-                  <button type="submit" class="btn btn-primary">Registrar</button>
-              </form>
+<main class="mt-5 pt-5">
+  <div class="container justify-content-center mb-9">
+  <!-- Default form login -->
+      <!-- Material form register -->
+    <div class="card">
 
-          </div>
-          <!--Grid row-->
-        </section>
-      </main>
-      <!--Main layout-->
+      <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Registrar</strong>
+      </h5>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;" action="#!">
+
+              <div class="form-row">
+                  <div class="col">
+                      <!-- First name -->
+                      <div class="md-form">
+                          <i id="materialRegisterFormFirstName" class="fas fa-envelope prefix grey-text"></i>
+                          {{ form.username }}
+                          <label for="materialRegisterFormFirstName">First name</label>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <!-- Last name -->
+                      <div class="md-form">
+                          <input type="email" id="materialRegisterFormLastName" class="form-control">
+                          <label for="materialRegisterFormLastName">Last name</label>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- E-mail -->
+              <div class="md-form mt-0">
+                  <input type="email" id="materialRegisterFormEmail" class="form-control">
+                  <label for="materialRegisterFormEmail">E-mail</label>
+              </div>
+
+              <!-- Password -->
+              <div class="md-form">
+                  <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                  <label for="materialRegisterFormPassword">Password</label>
+                  <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                      At least 8 characters and 1 digit
+                  </small>
+              </div>
+
+              <!-- Phone number -->
+              <div class="md-form">
+                  <input type="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                  <label for="materialRegisterFormPhone">Phone number</label>
+                  <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                      Optional - for two step authentication
+                  </small>
+              </div>
+
+              <!-- Newsletter -->
+              <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                  <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our newsletter</label>
+              </div>
+
+              <!-- Sign up button -->
+              <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+              <!-- Social register -->
+              <p>or sign up with:</p>
+
+              <a type="button" class="btn-floating btn-fb btn-sm">
+                  <i class="fab fa-facebook-f"></i>
+              </a>
+              <a type="button" class="btn-floating btn-tw btn-sm">
+                  <i class="fab fa-twitter"></i>
+              </a>
+              <a type="button" class="btn-floating btn-li btn-sm">
+                  <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a type="button" class="btn-floating btn-git btn-sm">
+                  <i class="fab fa-github"></i>
+              </a>
+
+              <hr>
+
+              <!-- Terms of service -->
+              <p>By clicking
+                  <em>Sign up</em> you agree to our
+                  <a href="" target="_blank">terms of service</a>
+
+          </form>
+          <!-- Form -->
+
+      </div>
+  </div>
+</main>
 {% endblock  %}
