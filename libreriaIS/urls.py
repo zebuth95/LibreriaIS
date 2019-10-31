@@ -24,12 +24,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 
-from core.views import home, Detallesbusqueda, detalleslug,SignUpView, detalleslug
+from core.views import home, detalleslug,SignUpView, detalleslug, BootstrapFilterView
 
 urlpatterns = [
     path('', home, name='home'),
     path('libro/<slug:slug>/', detalleslug, name='libro'),
-    path('busqueda/', Detallesbusqueda.as_view(), name='busqueda'),
+    path('busqueda/', BootstrapFilterView, name='busqueda'),
+    #path('busqueda/', Detallesbusqueda.as_view(), name='busqueda'),
     path('signup/', SignUpView.as_view(), name='signup'),
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),

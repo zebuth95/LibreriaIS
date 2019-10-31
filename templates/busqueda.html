@@ -8,50 +8,89 @@
                 <section class="text-center">
                         <h2>Busqueda de libros</h2>
                         <div class="form col-lg-4 col-md-12">
-                                <form method="GET" >
-                                  {{ filter.form|bootstrap }}
-                                  <button type="submit" class="btn btn-primary">Buscar</button>
-                                </form>
                                 </div>
     <!--Section: Cards-->
     <section class="pt-5">
+            <main role="main" class="container">
+                    <form method="GET" action=".">
+                      <div class="form-row">
+                          <div class="form-group col-12">
+                              <div class="input-group">
+                                  <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Busqueda por titulo..." />
+                                  <span class="input-group-append">
+                                      <div class="input-group-text bg-transparent">
+                                          <i class="fa fa-search"></i>
+                                      </div>
+                                  </span>
+                              </div>
+                          </div>        
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-12">
+                              <div class="input-group">
+                                  <input class="form-control py-2 border-right-0 border" type="search" name="name_contains" placeholder="Busqueda por nombre de autor..." />
+                                  <span class="input-group-append">
+                                      <div class="input-group-text bg-transparent">
+                                          <i class="fa fa-search"></i>
+                                      </div>
+                                  </span>
+                              </div>
+                          </div>        
+                      </div>
+                      <div class="form-row">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Buscar</button>
+                    </form>
+              
 
-            <!--Grid row-->
-            {% for libro in filter.qs %}
-            <hr class="mb-5">
+            <section class="pt-5">
+            {% for libro in queryset %}
+                <hr class="mb-5">
 
-            <!--Grid row-->
-            <div class="row mt-3 wow fadeIn">
+                <!--Grid row-->
+                <div class="row mt-3 wow fadeIn">
 
-            <!--Grid column-->
-            <div class="col-lg-5 col-xl-4 mb-4">
-                <!--Featured image-->
-                <div class="view overlay rounded z-depth-1">
-                <img src="{{ libro.imagen.url }}" class="img-fluid"
-                    alt="">
-                <a href="{% url 'libro' libro.slug %}" target="_blank">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+                <!--Grid column-->
+                <div class="col-lg-5 col-xl-4 mb-4">
+                    <!--Featured image-->
+                    <div class="view overlay rounded z-depth-1">
+                    <img src="{{ libro.imagen.url }}" class="img-fluid"
+                        alt="">
+                    <a href="{% url 'libro' libro.slug %}" target="_blank">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                    </div>
                 </div>
-            </div>
-            <!--Grid column-->
+                <!--Grid column-->
 
-            <!--Grid column-->
-            <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
-                <h3 class="mb-3 font-weight-bold dark-grey-text">
-                <strong>{{ libro.titulo }}</strong>
-                </h3>
-                <p class="grey-text">{{ libro.descripción }}</p>
-                <a href="{% url 'libro' libro.slug %}" target="_blank"
-                class="btn btn-primary btn-md">Ver maś
-                <i class="fas fa-play ml-2"></i>
-                </a>
-            </div>
-            <!--Grid column-->
-            </div>
+                <!--Grid column-->
+                <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
+                    <h3 class="mb-3 font-weight-bold dark-grey-text">
+                    <strong>{{ libro.titulo }}</strong>
+                    </h3>
+                    <p class="grey-text">
+                        {% for autor in autors %}
+                            {% if autor.libro == libro %}
+                            <p>Autor: 
+                            <class="grey-text">{{ autor.nombre }}</p> 
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p class="grey-text">Descripción: {{ libro.descripción|truncatechars:400 }}</p>
+                    <a href="{% url 'libro' libro.slug %}" target="_blank"
+                    class="btn btn-primary btn-md">Ver maś
+                    <i class="fas fa-play ml-2"></i>
+                    </a>
+                </div>
+                <!--Grid column-->
+                </div>
             {% endfor %}
-
-        </section>
+            </section>
+                        </ul>
+                    </div>
+              
+                  </main>
+    </section>
         <!--Section: Cards-->  
     </div>
 </main>

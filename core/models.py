@@ -5,6 +5,8 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
+from datetime import datetime, timedelta    
+
 rol_choise = (
     ('A','Addministrador'),
     ('B','Bibliotecario'),
@@ -49,9 +51,7 @@ class libro(models.Model):
         return self.titulo
 
 class autor(models.Model):
-    libro = models.ForeignKey(libro, on_delete=models.CASCADE,
-        related_name="autors",
-        related_query_name="autor",)
+    libro = models.ForeignKey(libro, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
     alias = models.CharField(max_length=40)
     cuidadOrigen = models.CharField(max_length=100)
@@ -89,9 +89,9 @@ class prestamo(models.Model):
     libro = models.ForeignKey(libro ,on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     fecha_prestamo = models.DateTimeField(auto_now_add=True)
-    fecha_devolucion = models.DateTimeField()
+    fecha_devolucion = models.DateTimeField(default=datetime.now()+timedelta(days=30))
     cantidad = models.IntegerField(3)
-    
+
     def __str__(self):
         return str(self.pk)
     

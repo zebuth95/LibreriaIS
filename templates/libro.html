@@ -29,12 +29,13 @@
     
                 <p class="lead font-weight-bold">{{ libros.titulo }}</p>
     
-                <p>{{ libros.descripción }}</p>
-
                 {% for autor in autors %}
-                        <p>Autor: {{ autor.nombre }}</p>
+                  {% if autor.libro == libros %}
+                    <p>Autor: {{ autor.nombre }}</p>
+                  {% endif %}
                 {% endfor %}
-                
+
+                <p class="grey-text">Descripción: {{ libros.descripción|truncatechars:900 }}</p>
     
                 <form class="d-flex justify-content-left">
                   <!-- Default input -->
