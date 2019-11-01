@@ -6,10 +6,12 @@
 
 {% block content %}
 <main class="mt-5 pt-5">
-    <div class="container justify-content-center mb-9">
-        <!-- Default form login -->
+    <div class="container justify-content-center ">
 
             <!-- Material form login -->
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
     <div class="card">
 
       <h5 class="card-header info-color white-text text-center py-4">
@@ -44,32 +46,17 @@
             </div>
             <div>
               <!-- Forgot password -->
-              <a href="">Forgot password?</a>
+              <a href="">Olvidaste la contraseña?</a>
             </div>
           </div>
 
           <!-- Sign in button -->
-          <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+          <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Ingresar</button>
 
           <!-- Register -->
-          <p>Not a member?
-            <a href="/signup">Register</a>
+          <p>No eres usuario?
+            <a href="/signup">Registrar</a>
           </p>
-
-          <!-- Social login -->
-          <p>or sign in with:</p>
-          <a type="button" class="btn-floating btn-fb btn-sm">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a type="button" class="btn-floating btn-tw btn-sm">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a type="button" class="btn-floating btn-li btn-sm">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a type="button" class="btn-floating btn-git btn-sm">
-            <i class="fab fa-github"></i>
-          </a>
 
         </form>
         <!-- Form -->
@@ -77,7 +64,9 @@
       </div>
 
     </div>
+  </div>
+  </div>
     <!-- Material form login -->
-      </div>
+  </div>
 </main>
 {% endblock  %}
