@@ -2,35 +2,35 @@
 
 ## Instrucciones para correr el proyecto
 
-1. **crear entorno virtual**
+1.**crear entorno virtual**
 
     > python -m venv <NOMBRE_DEL_ENTORNO>
     // ejemplo: python -m venv biblioteca
-  
+    
     > cd/<NOMBRE_DEL_ENTORNO>
 
-En Linux:
+En Linux:  
 
     > source <NOMBRE_DEL_ENTONRNO>/bin/activate
 
-En Windows:
+En Windows:  
 
     > source <NOMBRE_DEL_ENTONRNO>/Scripts/activate
 
-2. **Clonar el repositorio**
+2.**Clonar el repositorio**
 
     > git clone https://github.com/zebuth95/LibreriaIS.git
   
     > cd/LibreriaIS
 
-3. **Installar Django**
+3.**Installar Django**
 
     > python -m pip install --upgrade pip
 
     > pip install -r requirements.txt
   
 
-4. **Correr poyecto**
+4.**Correr poyecto**
 
     > python manage.py createsuperuser
 
