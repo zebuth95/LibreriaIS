@@ -89,7 +89,7 @@ class prestamo(models.Model):
     libro = models.ForeignKey(libro ,on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     fecha_prestamo = models.DateTimeField(auto_now_add=True)
-    fecha_devolucion = models.DateTimeField(default=datetime.now()+timedelta(days=30))
+    fecha_devolucion = models.DateTimeField(datetime.now()+timedelta(days=30))
     cantidad = models.IntegerField(3)
 
     def __str__(self):
