@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Prestamo{% endblock %}
+
+{% block content %}
+<main class="mt-5 pt-5">
+  <div class="container justify-content-center mb-9">
+  <!-- Default form login -->
+      <!-- Material form register -->
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+    <div class="card">
+
+      <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Devolución</strong>
+      </h5>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-5">
+
+          <!-- Form -->
+          <form method="post" class="text-center" style="color: #757575;">
+
+          <div class="form-row">
+            <input type=""  class="form-control mb-4" placeholder="Codigo del Libro">
+
+          </div>
+          <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Agregar a moroso
+                      </button> 
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Agregar a vetado
+                        </button>
+                  </div>
+                </div>  
+
+              </div>
+          </form>
+          {% comment %}
+
+          {% comment %}
+          <label for="">Devolución exitosa</label>  
+          <label for="">Devolución exitosa, el material ha sido regresado luego de la fecha de entrega</label> 
+          <div>
+              <label for="">El usuario ha sido vetado, por incumplir con las políticas de la biblioteca</label> 
+          </div>
+          {% endcomment %}
+          
+          <!-- Form -->
+        </div>
+    </div>
+      </div>
+      {% comment %}
+      <div>
+          <h5 class="justify-content-center">
+              <strong>Listado de prestamos existentes del usuario 1152211055</strong>
+          </h5>
+      </div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Codigo libro</th>
+              <th scope="col">Titulo Libro</th>
+              <th scope="col">Fecha Prestamo</th>
+              <th scope="col">Fecha Entrega</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>3982</td>
+              <td>La casa roja</td>
+              <td>30 de Octubre de 2019 a las 14:28</td>
+              <td>29 de Noviembre de 2019 a las 14:27</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>2352</td>
+              <td>El principito</td>
+              <td>30 de Octubre de 2019 a las 14:28</td>
+              <td>31 de Octubre de 2019 a las 13:00</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>828</td>
+              <td>The Bird</td>
+              <td>28 de Octubre de 2019 a las 01:23</td>
+              <td>29 de Octubre de 2019 a las 01:23</td>
+            </tr>
+          </tbody>
+        </table>
+
+      {% endcomment %}
+  </div>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input type=""  class="form-control mb-4" placeholder="Documento del usuario">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Ingresar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock  %}

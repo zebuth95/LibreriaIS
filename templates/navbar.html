@@ -24,23 +24,38 @@
               <li class="nav-item">
                 <a href="/busqueda" class="nav-link">Busqueda</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank">Free
-                  download</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free tutorials</a>
-              </li>
+              {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a href="/prestamo" class="nav-link">Prestamo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/devolucion" class="nav-link">Devolucion</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/devolucion" class="nav-link">Reserva</a>
+                </li>
+                {% endif %}
+              {% endif %}
             </ul>
-    
             <!-- test -->
-              
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a href="/login" class="nav-link border border-light rounded">
-                      <i class="fab fa-python"></i>Ingresar
-                    </a>
+                    {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a href="/admin" class="nav-link">Administrador</a>
+                    </li>
+                    {% endif %}
+                      <a href="/logout" class="nav-link border border-light rounded">
+                        <i class="fab fa-python"></i>Salir
+                      </a>
+                    {% else %}
+                      <a href="/login" class="nav-link border border-light rounded">
+                        <i class="fab fa-python"></i>Ingresar
+                      </a>
+                    {% endif %}
                   </li>
               <li class="nav-item">
                 <a href="https://github.com/zebuth95/LibreriaIS.git" class="nav-link border border-light rounded"

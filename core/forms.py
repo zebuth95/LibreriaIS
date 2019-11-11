@@ -18,3 +18,10 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ('username','email','documento','telefono','direccion')
+
+"""
+class CustomPrestamoForm(forms.ModelForm):
+    class Meta:
+        model = prestamo
+        fields = ['libro','user','fecha_devolucion']
+"""

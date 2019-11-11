@@ -53,9 +53,9 @@ class libro(models.Model):
 class autor(models.Model):
     libro = models.ForeignKey(libro, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
-    alias = models.CharField(max_length=40)
-    cuidadOrigen = models.CharField(max_length=100)
-    nacimiento = models.CharField(max_length=50)
+    alias = models.CharField(max_length=40, blank=True)
+    cuidadOrigen = models.CharField(max_length=100,blank=True)
+    nacimiento = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return self.nombre
@@ -89,17 +89,9 @@ class prestamo(models.Model):
     libro = models.ForeignKey(libro ,on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     fecha_prestamo = models.DateTimeField(auto_now_add=True)
-    fecha_devolucion = models.DateTimeField(datetime.now()+timedelta(days=30))
-    cantidad = models.IntegerField(3)
+    fecha_devolucion = models.DateTimeField(default=datetime.now() + timedelta(days=30))
+    
 
     def __str__(self):
         return str(self.pk)
     
-
-class portada(models.Model):
-    portada_id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=80)
-    fondo = models.ImageField()
-    
-    def __str__(self):
-        return str(self.pk)

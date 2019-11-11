@@ -7,7 +7,7 @@ from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
-from .models import libro, portada, autor, genero, editorial, prestamo, CustomUser
+from .models import libro, autor, genero, editorial, prestamo, CustomUser
 
 class CustomUserAdmin(UserAdmin):   #new
     add_form = CustomUserCreationForm
@@ -17,7 +17,7 @@ class CustomUserAdmin(UserAdmin):   #new
 
 class Customprestamo(admin.ModelAdmin):   #new
     model = prestamo
-    list_display = ['fecha_prestamo','get_user','get_libro','fecha_devolucion','cantidad']
+    list_display = ['fecha_prestamo','get_user','get_libro','fecha_devolucion']
 
     #para elementos relacionados
     def get_libro(self, obj):
@@ -29,10 +29,6 @@ class Customprestamo(admin.ModelAdmin):   #new
         return obj.user.documento
     get_user.admin_order_field  = 'documento'  #Allows column order sorting
     get_user.short_description = 'Documento usuario'  #Renames column head
-
-class Customportada(admin.ModelAdmin):   #new
-    model = portada
-    list_display = ['portada_id','nombre']
 
 class Customautor(admin.ModelAdmin):   #new
     model = autor
@@ -55,7 +51,6 @@ class Customlibro(admin.ModelAdmin):
 
 
 admin.site.register(autor, Customautor)
-admin.site.register(portada, Customportada)
 admin.site.register(libro,Customlibro)
 admin.site.register(genero)
 admin.site.register(editorial)

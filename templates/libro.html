@@ -30,9 +30,22 @@
                 <p class="lead font-weight-bold">{{ libros.titulo }}</p>
     
                 {% for autor in autors %}
-                  {% if autor.libro == libros %}
-                    <p>Autor: {{ autor.nombre }}</p>
-                  {% endif %}
+                {% if autor.libro == libros %}
+                {% if libros.material == 'L' %}
+                    <p>Autor: 
+                            <class="grey-text">{{ autor.nombre }}</p> 
+                {% else %}
+                {% if libros.material == 'R' %}
+                    <p>Editor: 
+                            <class="grey-text">{{ autor.nombre }}</p>
+                {% else %}
+                {% if libros.material == 'A' %}
+                    <p>Director: 
+                            <class="grey-text">{{ autor.nombre }}</p> 
+                {% endif %}
+                {% endif %}
+                {% endif %}
+        {% endif %}
                 {% endfor %}
 
                 <p class="grey-text">Descripción: {{ libros.descripción|truncatechars:900 }}</p>

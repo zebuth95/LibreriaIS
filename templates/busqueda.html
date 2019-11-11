@@ -5,7 +5,7 @@
 <main class="mt-5 pt-5">
         <div class="container">
                 <section class="text-center">
-                        <h2>Busqueda de libros</h2>
+                        <h2>Busqueda de material bibliográfico</h2>
                         <div class="form col-lg-4 col-md-12">
                                 </div>
     <!--Section: Cards-->
@@ -27,7 +27,7 @@
                       <div class="form-row">
                           <div class="form-group col-12">
                               <div class="input-group">
-                                  <input class="form-control py-2 border-right-0 border" type="search" name="name_contains" placeholder="Busqueda por nombre de autor..." />
+                                  <input class="form-control py-2 border-right-0 border" type="search" name="name_contains" placeholder="Busqueda por autor, director, editor" />
                                   <span class="input-group-append">
                                       <div class="input-group-text bg-transparent">
                                           <i class="fa fa-search"></i>
@@ -36,10 +36,21 @@
                               </div>
                           </div>        
                       </div>
+                      <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Busqueda por material
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button name="material_contains" class="dropdown-item" type="submit" value="L">Libro</button>
+                                <button name="material_contains" class="dropdown-item" type="submit" value="R">Revista</button>
+                                <button name="material_contains" class="dropdown-item" type="submit" value="A">Audio visual</button>
+                            </div>
+                        </div>
                       <div class="form-row">
                       </div>
-                      <button type="submit" class="btn btn-primary">Buscar</button>
-                    </form>
+                      <button type="submit" class="btn btn-primary">Buscar</button>                          
+                      <button name="order_contains" type="submit" class="btn btn-primary" value="order_contains">Ordenar filtrado</button>
+                    </form> 
               
 
             <section class="pt-5">
@@ -65,13 +76,25 @@
                 <!--Grid column-->
                 <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
                     <h3 class="mb-3 font-weight-bold dark-grey-text">
-                    <strong>{{ libro.titulo }}</strong>
+                                <strong> {{ libro.titulo }}</strong>
                     </h3>
                     <p class="grey-text">
                         {% for autor in autors %}
                             {% if autor.libro == libro %}
-                            <p>Autor: 
-                            <class="grey-text">{{ autor.nombre }}</p> 
+                                    {% if libro.material == 'L' %}
+                                        <p>Autor: 
+                                                <class="grey-text">{{ autor.nombre }}</p> 
+                                    {% else %}
+                                    {% if libro.material == 'R' %}
+                                        <p>Editor: 
+                                                <class="grey-text">{{ autor.nombre }}</p>
+                                    {% else %}
+                                    {% if libro.material == 'A' %}
+                                        <p>Director: 
+                                                <class="grey-text">{{ autor.nombre }}</p> 
+                                    {% endif %}
+                                    {% endif %}
+                                    {% endif %}
                             {% endif %}
                         {% endfor %}
                     </p>

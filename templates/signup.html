@@ -40,18 +40,15 @@
                     </div>
               </div>
             {% else %}
-              <div class="form-row">
-                    <div class="col">
-                                    <label class="control-label">{{ field.label }} : </label> 
-                    </div>
-                <div class="col-10">
-                                <div class="controls">{{ field }}
-                                    {% if field.help_text %}
-                                        <p class="help-inline"><small>{{ field.help_text }}</small></p>
-                                    {% endif %}
-                                </div>
-                    </div>
-              </div>
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">{{ field.label }}</label>
+                  <div class="blo">{{ field }}
+                      {% if field.help_text %}
+                          <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                      {% endif %}
+                  </div>
+              </form>
               {% endif %}
             {% endfor %}
 

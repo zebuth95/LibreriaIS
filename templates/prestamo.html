@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Prestamo{% endblock %}
+
+{% block content %}
+<main class="mt-5 pt-5">
+  <div class="container justify-content-center mb-9">
+  <!-- Default form login -->
+      <!-- Material form register -->
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+    <div class="card">
+
+      <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Prestamo</strong>
+      </h5>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-5">
+
+          <!-- Form -->
+          <form method="post" class="text-center" style="color: #757575;">
+
+          <div class="form-row">
+            <input type=""  class="form-control mb-4" placeholder="Documento">
+    <!-- Password -->
+            <input type=""  class="form-control mb-4" placeholder="Codigo del Libro">
+
+          </div>
+
+              <!-- Sign up button -->
+              <button class="btn btn-primary btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Registrar</button>
+
+          </form>
+          {% comment %}
+            <label for="">Prestamo exitoso</label>
+          {% endcomment %}
+          <!-- Form -->
+        </div>
+    </div>
+      </div>
+      {% comment %}
+      <h5 class="justify-content-center">
+          <strong>Listado de prestamos</strong>
+      </h5>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Libro</th>
+              <th scope="col">Fecha Prestamo</th>
+              <th scope="col">Fecha Entrega</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Juan Perez</td>
+              <td>La casa roja</td>
+              <td>30 de Octubre de 2019 a las 14:28</td>
+              <td>29 de Noviembre de 2019 a las 14:27</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Juan Perez</td>
+              <td>El principito</td>
+              <td>30 de Octubre de 2019 a las 14:28</td>
+              <td>31 de Octubre de 2019 a las 13:00</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Juan Perez</td>
+              <td>The Bird</td>
+              <td>28 de Octubre de 2019 a las 01:23</td>
+              <td>29 de Octubre de 2019 a las 01:23</td>
+            </tr>
+          </tbody>
+        </table>
+      {% endcomment %}
+      
+  </div>
+</main>
+{% endblock  %}
