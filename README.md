@@ -1,31 +1,41 @@
 # LibreriaIS
 
-1) crear entorno virtual
+## Instrucciones para correr el proyecto
 
-  python -m venv "nombre que gustes"
+1.**crear entorno virtual**
+
+    > python -m venv <NOMBRE_DEL_ENTORNO>
+    // ejemplo: python -m venv biblioteca
+    
+    > cd/<NOMBRE_DEL_ENTORNO>
+
+En Linux:  
+
+    > source <NOMBRE_DEL_ENTONRNO>/bin/activate
+
+En Windows:  
+
+    > source <NOMBRE_DEL_ENTONRNO>/Scripts/activate
+
+2.**Clonar el repositorio**
+
+    > git clone https://github.com/zebuth95/LibreriaIS.git
   
-  cd/"nombre dado"    
+    > cd/LibreriaIS
 
- linux : source "nombre dado"/bin/activate , Windows: "nombre dado"\Scripts\activate 
+3.**Installar Django**
+
+    > python -m pip install --upgrade pip
+
+    > pip install -r requirements.txt
   
-2) Intallar Django
-  
-  python -m pip install --upgrade pip
 
-  pip install -r requirements.txt
-  
-3) Clonamos
+4.**Correr poyecto**
 
-  git clone https://github.com/zebuth95/LibreriaIS.git
-  
-  cd/LibreriaIS
+    > python manage.py createsuperuser
 
-4) Correr poyecto
+    > python manage.py makemigrations 
 
-  python manage.py createsuperuser
+    > python manage.py migrate --run-syncdb
 
-  python manage.py makemigrations 
-
-  python manage.py migrate --run-syncdb
-
-  python manage.py runserver
+    > python manage.py runserver
